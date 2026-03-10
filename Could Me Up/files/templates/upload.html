@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+  <script defer src="{% static 'crypto.js' %}"></script>
+  <script defer src="{% static 'index.js' %}"></script>
+  <title>Scotty - Upload</title>
+</head>
+
+<body>
+	<header class="navbar">
+  <div class="navbar__container">
+        <a class="navbar__brand" href="/upload/">
+  <img class="navbar__logo" src="{% static 'Iscte_logo.jpg' %}" alt="ISCTE logo">
+</a>
+    <nav class="navbar__menu">
+      <a class="navbar__link" href="/upload/">Upload</a>
+      <a class="navbar__link" href="/download/">Download</a>
+    </nav>
+  </div>
+</header>
+
+	<main>
+		<form id="uploadForm">
+			<input type="file" name="file" id="file">
+			<div>
+				<label for="encryption-aes-gcm">AES-GCM</label>
+				<input type="radio" name="encryption" id="encryption-aes-gcm" >
+			</div>
+			<div>
+  				<label for="password">Password </label>
+  				<input type="password" id="password" placeholder="e.g., Iscte_25/26" />
+			</div>
+			<div class="provider">
+				<input type="checkbox" name="services" id="aws">
+				<label for="aws">AWS</label>
+			</div>
+			<div class="provider">
+  				<input type="checkbox" name="services" id="gdrive">
+  				<label for="gdrive">Google Drive</label>
+			</div>
+			<div class="provider">
+				<input type="checkbox" name="services" id="onedrive">
+				<label for="onedrive">One Drive</label>
+			</div>
+			<div class="provider">
+				<input type="checkbox" name="services" id="custom">
+				<label for="custom">Custom cloud provider</label>
+				<label for="custom_url">Url:</label> 
+				<input type="url" name="custom_url" id="custom_url" placeholder="empty = this server">
+				<label for="custom_key">Key (optional):</label>
+				<input type="text" name="custom_key" id="custom_key" placeholder="e.g. JoãoePedro">
+			</div>
+
+		<a class="btn btn--primary" href="/oauth/google/start" target="_blank" rel="noopener">
+  			Connect Google Drive
+		</a>
+
+  				<small style="opacity:0.9;">
+    			(Required once per browser/session)
+ 				 </small>
+				</div>
+			
+			
+			<button id="btnUpload" type="submit" class="btn btn--primary">Encrypt + Upload</button>
+
+
+      		<div id="status" style="white-space:pre-wrap;"></div>
+      		<a id="shareLink" style="display:none;" download="share_package.json">Download share_package.json</a>
+		</form>
+	</main>
+	
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer__col">
+      <p class="footer__title">ISCTE-IUL</p>
+      <p>Mestrado: Cibersegurança e Resiliência </p>
+      <p>Cadeira: Criptografia para Cibersegurança e Resiliência</p>
+      <p>Academic year: 2025/2026</p>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__title">Authors</p>
+      <address class="footer__address">
+        <p>João Mateus - <a href="mailto:jdlfb@iscte-iul.pt">jdlfb@iscte-iul.pt</a></p>
+        <p>Pedro Carreiras - <a href="mailto:pedrocarreiras@sapo.pt">pedrocarreiras@sapo.pt</a></p>
+      </address>
+    </div>
+  </div>
+
+  <div class="footerBottom">
+    <p>Copyright &copy; 2026 - Designed by <span class="designer">João Mateus  & Pedro Carreiras</span></p>
+  </div>
+</footer>
+</body>
+
+</html>

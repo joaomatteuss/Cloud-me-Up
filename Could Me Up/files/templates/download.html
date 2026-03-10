@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+  <script defer src="{% static 'crypto.js' %}"></script>
+  <script defer src="{% static 'download.js' %}"></script>
+
+  <title>Scotty - Download</title>
+</head>
+
+
+  <header class="navbar">
+  <div class="navbar__container">
+    <a class="navbar__brand" href="/upload/">
+  <img class="navbar__logo" src="{% static 'Iscte_logo.jpg' %}" alt="ISCTE logo">
+</a>
+    <nav class="navbar__menu">
+      <a class="navbar__link" href="/upload/">Upload</a>
+      <a class="navbar__link" href="/download/">Download</a>
+    </nav>
+  </div>
+</header>
+
+<body>
+  <main>
+    <form id="downloadForm">
+      <label>Import the share package (share_package.json)</label>
+      <input type="file" id="shareFile" accept="application/json" />
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Same password used for upload" />
+
+      <label>Custom cloud provider URL (if needed)</label>
+      <input type="url" id="custom_url" />
+
+      <label>Custom cloud provider Key (optional)</label>
+      <input type="text" id="custom_key" />
+
+      <a class="btn btn--primary" href="/oauth/google/start" target="_blank" rel="noopener" style="text-align:center;">
+      Connect Google Drive
+      </a>
+      
+      <button type="submit" class="btn btn--primary">Download + Reconstruct</button>
+
+
+      <div id="status" style="white-space: pre-wrap;"></div>
+
+      <a id="fileLink" style="display:none;">Download file</a>
+    </form>
+  </main>
+
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer__col">
+      <p class="footer__title">ISCTE-IUL</p>
+      <p>Mestrado: Cibersegurança e Resiliência </p>
+      <p>Cadeira: Criptografia para Cibersegurança e Resiliência</p>
+      <p>Academic year: 2025/2026</p>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__title">Authors</p>
+      <address class="footer__address">
+        <p>João Mateus - <a href="mailto:jdlfb@iscte-iul.pt">jdlfb@iscte-iul.pt</a></p>
+        <p>Pedro Carreiras - <a href="mailto:pedrocarreiras@sapo.pt">pedrocarreiras@sapo.pt</a></p>
+      </address>
+    </div>
+  </div>
+
+  <div class="footerBottom">
+    <p>Copyright &copy; 2026 - Designed by <span class="designer">João Mateus  & Pedro Carreiras</span></p>
+  </div>
+</footer>
+
+</body>
+</html>
